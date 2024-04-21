@@ -1,9 +1,7 @@
 "use client"
 const SubmitButton = ({label}) => {
     return(
-      <div> 
-        <input type="submit" value={label} />
-      </div>
+      <button>{label}</button>
     )
 }
 export default SubmitButton;

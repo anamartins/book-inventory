@@ -1,9 +1,7 @@
 "use client"
 const Input = ({name, label}) => {
     return(
-        <div>
-            <label>{label}<input name={name}/></label>
-        </div>
+        <label>{label}<input name={name}/></label>
     )
 }
 export default Input;
