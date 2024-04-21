@@ -1,30 +1,30 @@
-"use client"
-import Input from "./Input";
-import Checkbox from "./Checkbox";
-import SubmitButton from "./SubmitButton";
+'use client'
+import Input from './Input'
+import Checkbox from './Checkbox'
+import SubmitButton from './SubmitButton'
 
-import {FormEvent} from 'react'
+import { FormEvent } from 'react'
 
 import saveBook from '../utils/saveBook'
 
 function onSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
+    event.preventDefault()
 
     const formElements = event.currentTarget.elements
     const book = {}
 
-    for (let i = 0; i < formElements.length - 1; i++){
-        const name = formElements[i].name;
-        const value = formElements[i].value;
+    for (let i = 0; i < formElements.length - 1; i++) {
+        const name = formElements[i].name
+        const value = formElements[i].value
         book[name] = value
     }
     saveBook(book)
 }
 
 const Form = () => {
-    return(
-        <form className="form" onSubmit={onSubmit}>   
-            <Input name="name" label="Name:"/>
+    return (
+        <form className="form" onSubmit={onSubmit}>
+            <Input name="name" label="Name:" />
             <Input name="authorName" label="Author name:" />
             <Input name="authorGender" label="Author gender:" />
             <Input name="authorNationality" label="Author nationality:" />
@@ -40,8 +40,6 @@ const Form = () => {
             <SubmitButton label="Go!" />
         </form>
     )
- 
-
 }
 
-export default Form;
+export default Form
