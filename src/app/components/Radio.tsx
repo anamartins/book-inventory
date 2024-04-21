@@ -14,7 +14,7 @@ const RadioGroup = ({ title, options }) => {
                 </label>
             ))}
         </div>
-    )
-}
+    );
+};
 
-export default RadioGroup
+export default RadioGroup;

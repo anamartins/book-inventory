@@ -1,5 +1,5 @@
-import styles from './page.module.css'
-import Form from './components/Form'
+import styles from './page.module.css';
+import Form from './components/Form';
 
 export default function Home() {
     // const atributes = [
@@ -45,5 +45,5 @@ export default function Home() {
         <main className={styles.main}>
             <Form />
         </main>
-    )
+    );
 }

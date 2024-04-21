@@ -1,5 +1,5 @@
-'use client'
+'use client';
 const SubmitButton = ({ label }) => {
-    return <button>{label}</button>
-}
-export default SubmitButton
+    return <button>{label}</button>;
+};
+export default SubmitButton;
