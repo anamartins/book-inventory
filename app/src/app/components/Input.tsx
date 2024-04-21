@@ -2,7 +2,7 @@
 const Input = ({name, label}) => {
     return(
         <div>
-            <label htmlFor={name}>{label}<input name={name}/></label>
+            <label>{label}<input name={name}/></label>
         </div>
     )
 }

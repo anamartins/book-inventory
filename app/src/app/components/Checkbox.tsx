@@ -2,7 +2,7 @@
 const Checkbox = ({name, label}) => {
     return (
         <div>
-            <label htmlFor={name}>{label}<input type="checkbox"/></label>
+            <label>{label}<input name={name} type="checkbox"/></label>
         </div>
     )
 }

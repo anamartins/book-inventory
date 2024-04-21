@@ -18,7 +18,7 @@ function onSubmit(event: FormEvent<HTMLFormElement>) {
         const value = formElements[i].value;
         book[name] = value
     }
-    saveBook([book])
+    saveBook(book)
 }
 
 const Form = () => {
