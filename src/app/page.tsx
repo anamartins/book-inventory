@@ -3,9 +3,13 @@
 import {useState} from 'react';
 
 import styles from './page.module.css';
+import showBooks from './utils/showBooks'
+
 import Form from './components/Form';
 import Button from './components/Button'
-import showBooks from './utils/showBooks'
+import BookList from './components/BookList'
+
+
 
 export default function Home() {
     // const atributes = [
@@ -58,16 +62,9 @@ export default function Home() {
         <main className={styles.main}>
             <Button label="Show collection" onClick={onButtonClick}/>
             <Form />
-
-        <div>
+        <div>            
             <h2>COLLECTION</h2>
-
-            { books.length ? books.map( (book) => {
-                return <div key={book.id}>
-                    <h3>{book.name}, {book.authorName}</h3> 
-                    
-                </div>;
-            }) : 0}
+            <BookList books={books} />
         </div>
         </main>
     );
