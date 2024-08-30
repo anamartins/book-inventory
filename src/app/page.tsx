@@ -12,25 +12,6 @@ import BookList from './components/BookList'
 
 
 export default function Home() {
-    // const atributes = [
-    //   'title',
-    //   {
-    //     author:[
-    //       'name',
-    //       'gender',
-    //       {nationality: ['country', 'province/state', 'city', 'continent']},
-    //       'birthdate'
-    //     ]
-    //   },
-    //   'publisher',
-    //   'year',
-    //   'edition',
-    //   'genre',
-    //   'photo',
-    //   {dedication: ['isSigned', 'isSignedToMe']},
-    //   {lent: ['isLent', 'lendTo', 'lendDate', 'lendHistory']}
-    // ];
-
     // const book = {
     //   title: 'Notes on \'Camp\'',
     //   author:{
