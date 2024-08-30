@@ -5,7 +5,7 @@ import SubmitButton from './SubmitButton';
 
 import { FormEvent } from 'react';
 
-import saveBook, {Book} from '../utils/saveBook';
+import {saveBook, Book} from '../utils/bookStorage';
 
 function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();

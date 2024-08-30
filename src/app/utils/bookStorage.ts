@@ -26,7 +26,7 @@ export type Book = {
     }
 }
 
-export default function saveBook(book: Book) {
+export function saveBook(book: Book) {
     const isLocalStorage = localStorage.getItem(localStorageItem);
     if (!isLocalStorage) {
         book.id = 1;
@@ -41,4 +41,8 @@ export default function saveBook(book: Book) {
 
         localStorage.setItem(localStorageItem, JSON.stringify(storage));
     }
+}
+
+export default function getBooks() {
+    return JSON.parse(localStorage.getItem(localStorageItem));
 }
