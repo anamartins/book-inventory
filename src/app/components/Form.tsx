@@ -5,17 +5,18 @@ import SubmitButton from './SubmitButton';
 
 import { FormEvent } from 'react';
 
-import saveBook from '../utils/saveBook';
+import {saveBook, Book} from '../utils/bookStorage';
 
 function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    const formElements = event.currentTarget.elements;
-    const book = {};
+    const formElements:HTMLFormControlsCollection = event.currentTarget.elements;
+    const book:Book = {};
 
     for (let i = 0; i < formElements.length - 1; i++) {
-        const name = formElements[i].name;
-        const value = formElements[i].value;
+        const input = formElements[i] as HTMLInputElement;
+        const name = input.name;
+        const value = input.value;
         book[name] = value;
         formElements[i].name = ""
         formElements[i].value = ""

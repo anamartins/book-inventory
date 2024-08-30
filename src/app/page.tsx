@@ -3,7 +3,7 @@
 import {useState} from 'react';
 
 import styles from './page.module.css';
-import getBooks from './utils/getBooks'
+import {getBooks} from './utils/bookStorage'
 
 import Form from './components/Form';
 import Button from './components/Button'
@@ -12,25 +12,6 @@ import BookList from './components/BookList'
 
 
 export default function Home() {
-    // const atributes = [
-    //   'title',
-    //   {
-    //     author:[
-    //       'name',
-    //       'gender',
-    //       {nationality: ['country', 'province/state', 'city', 'continent']},
-    //       'birthdate'
-    //     ]
-    //   },
-    //   'publisher',
-    //   'year',
-    //   'edition',
-    //   'genre',
-    //   'photo',
-    //   {dedication: ['isSigned', 'isSignedToMe']},
-    //   {lent: ['isLent', 'lendTo', 'lendDate', 'lendHistory']}
-    // ];
-
     // const book = {
     //   title: 'Notes on \'Camp\'',
     //   author:{
