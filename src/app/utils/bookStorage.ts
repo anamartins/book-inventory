@@ -29,13 +29,11 @@ export type Book = {
 export function saveBook(book: Book) {
     const isLocalStorage = localStorage.getItem(localStorageItem);
     if (!isLocalStorage) {
-        book.id = 1;
         localStorage.setItem(localStorageItem, JSON.stringify([book]));
     } else {
         let storage = JSON.parse(localStorage.getItem(localStorageItem));
 
         const length = storage.length;
-        book.id = length + 1;
 
         storage = [...storage, book];
 
@@ -43,6 +41,6 @@ export function saveBook(book: Book) {
     }
 }
 
-export default function getBooks() {
+export function getBooks() {
     return JSON.parse(localStorage.getItem(localStorageItem));
 }

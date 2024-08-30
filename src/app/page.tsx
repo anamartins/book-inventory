@@ -3,7 +3,7 @@
 import {useState} from 'react';
 
 import styles from './page.module.css';
-import getBooks from './utils/bookStorage'
+import {getBooks} from './utils/bookStorage'
 
 import Form from './components/Form';
 import Button from './components/Button'
