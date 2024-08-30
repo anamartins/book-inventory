@@ -3,7 +3,7 @@
 import {useState} from 'react';
 
 import styles from './page.module.css';
-import showBooks from './utils/showBooks'
+import getBooks from './utils/getBooks'
 
 import Form from './components/Form';
 import Button from './components/Button'
@@ -55,7 +55,7 @@ export default function Home() {
     const [books, setBooks] = useState('')
 
     function onButtonClick(){
-        setBooks(showBooks());
+        setBooks(getBooks());
     }
     
     return (
