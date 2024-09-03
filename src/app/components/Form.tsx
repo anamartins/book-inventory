@@ -1,11 +1,11 @@
 'use client';
 import Input from './Input';
-import Checkbox from './Checkbox';
 import SubmitButton from './SubmitButton';
 
 import { FormEvent } from 'react';
-
 import {saveBook, Book} from '../utils/bookStorage';
+
+import '../styles/Form.scss'
 
 function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -18,8 +18,12 @@ function onSubmit(event: FormEvent<HTMLFormElement>) {
         const name = input.name;
         const value = input.value;
         book[name] = value;
-        formElements[i].name = ""
-        formElements[i].value = ""
+       
+        if (formElements[i].type == "checkbox") {
+            formElements[i].checked = ""
+        } else {
+            formElements[i].value = ""   
+        }
     }
     saveBook(book);
 }
@@ -31,14 +35,14 @@ const Form = () => {
             <Input name="authorName" label="Author name:" />
             <Input name="authorGender" label="Author gender:" />
             <Input name="authorNationality" label="Author nationality:" />
-            <Input name="authorBirthdate" label="Author birthdate:" />
+            <Input name="authorBirthdate" label="Author birthdate:" type="date"/>
             <Input name="publisher" label="Publisher:" />
-            <Input name="year" label="Published in:" />
-            <Input name="edition" label="Edition:" />
+            <Input name="year" label="Published in:" type="number"/>
+            <Input name="edition" label="Edition:" type="number"/>
             <Input name="genre" label="Genre:" />
             <Input name="photo" label="Photo:" />
-            <Checkbox name="isSigned" label="Is signed?" />
-            <Checkbox name="isSignedToMe" label="Is signed to me?" />
+            <Input name="isSigned" label="Is signed?" type="checkbox"/>
+            <Input name="isSignedToMe" label="Is signed to me?" type="checkbox"/>
             <Input name="details" label="Other details" />
             <SubmitButton label="Go!" />
         </form>

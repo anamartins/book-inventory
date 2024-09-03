@@ -1,9 +1,17 @@
 'use client';
-const Input = ({ name, label }) => {
+import '../styles/Input.scss'
+
+interface InputProps {
+    name: string,
+    label: string,
+    type?: string
+}
+
+const Input = ({name, label, type}: InputProps) => {
     return (
         <label>
             {label}
-            <input name={name} />
+            <input name={name} type={type ? type : 'text'}/>
         </label>
     );
 };
