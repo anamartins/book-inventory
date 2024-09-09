@@ -3,12 +3,6 @@
    flex-wrap: wrap;
    justify-content: flex-start;
    margin: 1rem;
-   padding: 2rem;
+   padding: var(--padding);
    width: 100vw;
-
-   button {
-      width: 30vw;
-      height: 5vh;
-      margin: 1rem 0;
-   }
 }
