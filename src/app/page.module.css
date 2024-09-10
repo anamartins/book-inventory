@@ -2,3 +2,9 @@
     background-color: var(--tertiary-color);
     padding: var(--padding)
 }
+
+.booklist{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

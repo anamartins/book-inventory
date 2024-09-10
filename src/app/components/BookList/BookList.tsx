@@ -1,12 +1,15 @@
+'use client';
+import './BookList.scss';
+
 const BookList = ({books}) => {
     return (
-        books.length ? books.map( (book) => {
-            return <ul key={book.id}>
-                <li>{book.name}, {book.authorName}</li> 
+        books.length ? books.map( (book, index:number) => {
+            return <div className="book-collection" key={book.name}>
+                <h2>{index + 1}. {book.name}, {book.authorName}</h2>
+                <p>Publisher: {book.publisher}, {book.year}. {book.edition} edition.</p> 
                 
-            </ul>;
+            </div>;
         }) : 0
-
     )
 }
 
