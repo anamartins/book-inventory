@@ -5,11 +5,9 @@ import {useState} from 'react';
 import styles from './page.module.css';
 import {getBooks} from './utils/bookStorage'
 
-import Form from './components/Form';
-import Button from './components/Button'
-import BookList from './components/BookList'
-
-
+import Form from './components/Form/Form';
+import Button from './components/Button/Button'
+import BookList from './components/BookList/BookList'
 
 export default function Home() {
     // const book = {
@@ -41,12 +39,13 @@ export default function Home() {
     
     return (
         <main className={styles.main}>
-            <Button label="Show collection" onClick={onButtonClick}/>
             <Form />
-        <div>            
+        <div className={styles.collection}> 
+        <Button label="Show collection" onClick={onButtonClick}/>           
             <h2>COLLECTION</h2>
             <BookList books={books} />
         </div>
+   
         </main>
     );
 }

@@ -1,0 +1,14 @@
+button {
+    width: 20vw;
+    margin: 0.5rem;
+    background-color: var(--secondary-color);
+    border: none;
+    color: var(--font-color);
+    font-size: var(--font-size);
+    font-weight: 700;
+}
+
+button:hover {
+    background-color: var(--accent-color);
+    cursor: pointer;
+}

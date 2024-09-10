@@ -1,11 +1,12 @@
 'use client';
-import Input from './Input';
-import SubmitButton from './SubmitButton';
+import Input from '../Input/Input';
+import Checkout from '../Checkbox/Checkbox';
+import SubmitButton from '../SubmitButton/SubmitButton';
 
 import { FormEvent } from 'react';
-import {saveBook, Book} from '../utils/bookStorage';
+import {saveBook, Book} from '../../utils/bookStorage';
 
-import '../styles/Form.scss'
+import './Form.scss'
 
 function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -41,10 +42,11 @@ const Form = () => {
             <Input name="edition" label="Edition:" type="number"/>
             <Input name="genre" label="Genre:" />
             <Input name="photo" label="Photo:" />
-            <Input name="isSigned" label="Is signed?" type="checkbox"/>
-            <Input name="isSignedToMe" label="Is signed to me?" type="checkbox"/>
+            <Checkout name="isSigned" label="Is signed?" />
+            <Checkout name="isSignedToMe" label="Is signed to me?" />
             <Input name="details" label="Other details" />
             <SubmitButton label="Go!" />
+            
         </form>
     );
 };
