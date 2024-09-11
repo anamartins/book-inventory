@@ -1,19 +1,12 @@
-'use client';
-import './BookList.scss';
-
-
 const BookList = ({books}) => {
-    const bookList = books.length ? books.map( (book, index:number) => {
-        return <li className="book-list-item" key={book.name}>
-            <h2>{index + 1}. {book.name}, {book.authorName}</h2>
-            <p>Publisher: {book.publisher}, {book.year}. {book.edition} edition.</p> 
-            
-        </li>;
-    }) : 0
     return (
-        <ul className="book-list">
-            {bookList}
-        </ul>
+        books.length ? books.map( (book) => {
+            return <ul key={book.id}>
+                <li>{book.name}, {book.authorName}</li> 
+                
+            </ul>;
+        }) : 0
+
     )
 }
 

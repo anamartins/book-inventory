@@ -45,7 +45,8 @@ const Form = () => {
             <Checkout name="isSigned" label="Is signed?" />
             <Checkout name="isSignedToMe" label="Is signed to me?" />
             <Input name="details" label="Other details" />
-            <SubmitButton label="Go!" />  
+            <SubmitButton label="Go!" />
+            
         </form>
     );
 };
