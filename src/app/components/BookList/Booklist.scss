@@ -1,4 +1,11 @@
-.book-collection{
+.book-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.book-list-item {
+    list-style: none;
     border: 1px solid var(--font-color);
     margin: 1rem 1rem 0 0;
     padding: 0 1rem;
