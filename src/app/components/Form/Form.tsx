@@ -28,9 +28,9 @@ function onSubmit(event: FormEvent<HTMLFormElement>) {
         book[name] = value;
        
         if (input.type == "checkbox") {
-            input.checked = ""
+            input.checked = false;
         } else {
-            input.value = ""   
+            input.value = ""; 
         }
     }
 
