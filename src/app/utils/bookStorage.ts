@@ -1,4 +1,5 @@
 import { localStorageItem } from './constants';
+import { useEffect, useState } from 'react';
 
 export type Book = {
     id: number;
@@ -47,4 +48,16 @@ export function saveBook(book: Book) {
 
 export function getBooks() {
     return JSON.parse(localStorage.getItem(localStorageItem));
+}
+
+export function getBook(slug:string) {
+    const [collection, setCollection] = useState([]);
+
+    useEffect(() => {
+        setCollection(getBooks())
+    }, []);
+    
+    let book = collection.find(e => e.slug == slug)
+
+    return book;
 }
