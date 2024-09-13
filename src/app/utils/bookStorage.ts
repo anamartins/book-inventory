@@ -6,35 +6,35 @@ export type Book = {
     slug: string;
     name: string;
     author: {
-        name: string,
-        gender: string,
+        name: string;
+        gender: string;
         nationality: {
-            country: string,
-            proviceState: string,
-            city: string,
-            continent: string,
-        },
-        birthdate: string
-    },
-    publisher: string,
-    year: number,
-    edition: number, 
-    photo?: string,
+            country: string;
+            proviceState: string;
+            city: string;
+            continent: string;
+        };
+        birthdate: string;
+    };
+    publisher: string;
+    year: number;
+    edition: number;
+    photo?: string;
     details?: {
-        isSigned: boolean,
-        lendTo: string,
-        lendDate: string,
-        lendHistory: string
-    }
-}
+        isSigned: boolean;
+        lendTo: string;
+        lendDate: string;
+        lendHistory: string;
+    };
+};
 
 function slugify(name) {
-    return name.toLowerCase().replaceAll(" ", "-")
+    return name.toLowerCase().replaceAll(' ', '-');
 }
 
 export function saveBook(book: Book) {
     const isLocalStorage = localStorage.getItem(localStorageItem);
-    book.id = Date.now()
+    book.id = Date.now();
     book.slug = slugify(book.name);
     if (!isLocalStorage) {
         localStorage.setItem(localStorageItem, JSON.stringify([book]));
@@ -50,14 +50,14 @@ export function getBooks() {
     return JSON.parse(localStorage.getItem(localStorageItem));
 }
 
-export function getBook(slug:string) {
+export function getBook(slug: string) {
     const [collection, setCollection] = useState([]);
 
     useEffect(() => {
-        setCollection(getBooks())
+        setCollection(getBooks());
     }, []);
-    
-    let book = collection.find(e => e.slug == slug)
+
+    let book = collection.find((e) => e.slug == slug);
 
     return book;
 }

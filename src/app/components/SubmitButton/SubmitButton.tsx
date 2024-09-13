@@ -1,5 +1,5 @@
 'use client';
-import './SubmitButton.scss'
+import './SubmitButton.scss';
 
 const SubmitButton = ({ label }) => {
     return <button>{label}</button>;
