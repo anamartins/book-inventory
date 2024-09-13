@@ -4,15 +4,16 @@ import Checkout from '../Checkbox/Checkbox';
 import SubmitButton from '../SubmitButton/SubmitButton';
 
 import { FormEvent } from 'react';
-import {saveBook, Book} from '../../utils/bookStorage';
+import { saveBook, Book } from '../../utils/bookStorage';
 
-import './Form.scss'
+import './Form.scss';
 
 function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    const formElements:HTMLFormControlsCollection = event.currentTarget.elements;
-    const book:Book = {};
+    const formElements: HTMLFormControlsCollection =
+        event.currentTarget.elements;
+    const book: Book = {};
 
     for (let i = 0; i < formElements.length - 1; i++) {
         const input = formElements[i] as HTMLInputElement;
@@ -20,20 +21,19 @@ function onSubmit(event: FormEvent<HTMLFormElement>) {
 
         let value;
 
-        if (input.type == "checkbox") {
+        if (input.type == 'checkbox') {
             value = input.checked;
         } else {
             value = input.value;
         }
         book[name] = value;
-       
-        if (input.type == "checkbox") {
+
+        if (input.type == 'checkbox') {
             input.checked = false;
         } else {
-            input.value = ""; 
+            input.value = '';
         }
     }
-
 
     saveBook(book);
 }
@@ -45,16 +45,20 @@ const Form = () => {
             <Input name="authorName" label="Author name:" />
             <Input name="authorGender" label="Author gender:" />
             <Input name="authorNationality" label="Author nationality:" />
-            <Input name="authorBirthdate" label="Author birthdate:" type="date"/>
+            <Input
+                name="authorBirthdate"
+                label="Author birthdate:"
+                type="date"
+            />
             <Input name="publisher" label="Publisher:" />
-            <Input name="year" label="Published in:" type="number"/>
-            <Input name="edition" label="Edition:" type="number"/>
+            <Input name="year" label="Published in:" type="number" />
+            <Input name="edition" label="Edition:" type="number" />
             <Input name="genre" label="Genre:" />
             <Input name="photo" label="Photo:" />
             <Checkout name="isSigned" label="Is signed?" />
             <Checkout name="isSignedToMe" label="Is signed to me?" />
             <Input name="details" label="Other details" />
-            <SubmitButton label="Go!" />  
+            <SubmitButton label="Go!" />
         </form>
     );
 };

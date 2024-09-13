@@ -1,3 +1,3 @@
 export default function BooksPage() {
-    return <h1>BOOKS</h1>
+    return <h1>BOOKS</h1>;
 }
