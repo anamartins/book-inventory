@@ -1,11 +1,11 @@
 'use client';
 import './BookList.scss';
 
-
 const BookList = ({books}) => {
     const bookList = books.length ? books.map( (book, index:number) => {
-        return <li className="book-list-item" key={book.name}>
-            <h2>{index + 1}. {book.name}, {book.authorName}</h2>
+        const url = "/books/" + book.slug
+        return <li className="book-list-item" key={book.id}>
+            <h2>{index + 1}. <a href={url}>{book.name}</a>, {book.authorName}</h2>
             <p>Publisher: {book.publisher}, {book.year}. {book.edition} edition.</p> 
             
         </li>;

@@ -2,3 +2,13 @@
     background-color: var(--tertiary-color);
     padding: var(--padding)
 }
+
+.collection a, 
+.collection a:active,
+.collection a:visited {
+    color: var(--font-color)
+}
+
+.collection a:hover {
+    color: var(--accent-color)
+}

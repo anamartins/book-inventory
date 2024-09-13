@@ -1,8 +1,10 @@
 import { localStorageItem } from './constants';
+import { useEffect, useState } from 'react';
 
 export type Book = {
     id: number;
-    title: string;
+    slug: string;
+    name: string;
     author: {
         name: string,
         gender: string,
@@ -26,15 +28,18 @@ export type Book = {
     }
 }
 
+function slugify(name) {
+    return name.toLowerCase().replaceAll(" ", "-")
+}
+
 export function saveBook(book: Book) {
     const isLocalStorage = localStorage.getItem(localStorageItem);
+    book.id = Date.now()
+    book.slug = slugify(book.name);
     if (!isLocalStorage) {
         localStorage.setItem(localStorageItem, JSON.stringify([book]));
     } else {
         let storage = JSON.parse(localStorage.getItem(localStorageItem));
-
-        const length = storage.length;
-
         storage = [...storage, book];
 
         localStorage.setItem(localStorageItem, JSON.stringify(storage));
@@ -43,4 +48,16 @@ export function saveBook(book: Book) {
 
 export function getBooks() {
     return JSON.parse(localStorage.getItem(localStorageItem));
+}
+
+export function getBook(slug:string) {
+    const [collection, setCollection] = useState([]);
+
+    useEffect(() => {
+        setCollection(getBooks())
+    }, []);
+    
+    let book = collection.find(e => e.slug == slug)
+
+    return book;
 }
