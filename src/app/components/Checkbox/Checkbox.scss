@@ -1,10 +1,10 @@
 .checkbox-wrapper {
     cursor: pointer;
     margin: 1rem;
-    padding: 0.5rem;
+    padding: 0.5rem 0;
     border: var(--border);
     border-radius: var(--border-radius);
-    overflow: auto;
+    overflow: hidden;
     font-size: var(--font-size);
 }
 
@@ -16,3 +16,17 @@
 .checkbox-label {
     cursor: pointer;
 }
+
+.checkbox {
+    display: none;
+}
+
+span {
+    padding: 0.5rem;
+}
+
+.checkbox:checked + span {
+    background-color: var(--font-color);
+    color: var(--primary-color);
+}
+

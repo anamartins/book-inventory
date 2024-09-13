@@ -11,7 +11,7 @@ const Checkout = ({name, label}: CheckboxProps) => {
         <div className="checkbox-wrapper">
             <label className="checkbox-label">
                     <input name={name} type='checkbox' className="checkbox" />
-                    {label}
+                    <span>{label}</span>
             </label>  
         </div>
     );

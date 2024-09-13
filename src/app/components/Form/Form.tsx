@@ -17,15 +17,24 @@ function onSubmit(event: FormEvent<HTMLFormElement>) {
     for (let i = 0; i < formElements.length - 1; i++) {
         const input = formElements[i] as HTMLInputElement;
         const name = input.name;
-        const value = input.value;
+
+        let value;
+
+        if (input.type == "checkbox") {
+            value = input.checked;
+        } else {
+            value = input.value;
+        }
         book[name] = value;
        
-        if (formElements[i].type == "checkbox") {
-            formElements[i].checked = ""
+        if (input.type == "checkbox") {
+            input.checked = false;
         } else {
-            formElements[i].value = ""   
+            input.value = ""; 
         }
     }
+
+
     saveBook(book);
 }
 
