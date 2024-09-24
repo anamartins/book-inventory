@@ -8,7 +8,7 @@ interface CheckboxProps {
     onChange: Function;
 }
 
-const Checkout = ({ name, label, value, onChange }: CheckboxProps) => {
+const Checkbox = ({ name, label, value, onChange }: CheckboxProps) => {
     function onCheckboxChange(event) {
         onChange(name, event.target.checked);
     }
@@ -28,4 +28,4 @@ const Checkout = ({ name, label, value, onChange }: CheckboxProps) => {
         </div>
     );
 };
-export default Checkout;
+export default Checkbox;
