@@ -63,16 +63,6 @@ const Form = () => {
             isSignedToMe: '',
             details: '',
         });
-
-        for (let i = 0; i < formElements.length - 1; i++) {
-            const input = formElements[i] as HTMLInputElement;
-
-            if (input.type == 'checkbox') {
-                input.checked = false;
-            } else {
-                input.value = '';
-            }
-        }
     }
 
     return (
