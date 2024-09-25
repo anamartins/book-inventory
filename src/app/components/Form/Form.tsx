@@ -1,63 +1,153 @@
 'use client';
-import Input from '../Input/Input';
-import Checkout from '../Checkbox/Checkbox';
+import FormInput from '../FormInput/FormInput';
+import Checkbox from '../Checkbox/Checkbox';
 import SubmitButton from '../SubmitButton/SubmitButton';
 
-import { FormEvent } from 'react';
+import { useState, FormEvent } from 'react';
 import { saveBook, Book } from '../../utils/bookStorage';
 
 import './Form.scss';
 
-function onSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
+const Form = () => {
+    const [formData, updateFormData] = useState({
+        name: '',
+        authorName: '',
+        authorGender: '',
+        authorNationality: '',
+        authorBirthdate: '',
+        publisher: '',
+        year: 0,
+        edition: 0,
+        genre: '',
+        photo: '',
+        isSigned: '',
+        isSignedToMe: '',
+        details: '',
+    });
 
-    const formElements: HTMLFormControlsCollection =
-        event.currentTarget.elements;
-    const book: Book = {};
-
-    for (let i = 0; i < formElements.length - 1; i++) {
-        const input = formElements[i] as HTMLInputElement;
-        const name = input.name;
-
-        let value;
-
-        if (input.type == 'checkbox') {
-            value = input.checked;
-        } else {
-            value = input.value;
-        }
-        book[name] = value;
-
-        if (input.type == 'checkbox') {
-            input.checked = false;
-        } else {
-            input.value = '';
-        }
+    function onInputChange(name: string, value: string | boolean) {
+        updateFormData({
+            ...formData,
+            [name]: value,
+        });
     }
 
-    saveBook(book);
-}
+    function onSubmit(event: FormEvent<HTMLFormElement>) {
+        event.preventDefault();
+        const formElements: HTMLFormControlsCollection =
+            event.currentTarget.elements;
+        const bookName = formData.name;
+        const authorName = formData.authorName;
 
-const Form = () => {
+        if (!bookName || !authorName) {
+            console.log(
+                'you need to add at least the name of the book and the author'
+            ); // to-do: show error on the UI
+            return;
+        }
+
+        saveBook(formData);
+
+        updateFormData({
+            name: '',
+            authorName: '',
+            authorGender: '',
+            authorNationality: '',
+            authorBirthdate: '',
+            publisher: '',
+            year: 0,
+            edition: 0,
+            genre: '',
+            photo: '',
+            isSigned: '',
+            isSignedToMe: '',
+            details: '',
+        });
+    }
+
     return (
         <form className="form" onSubmit={onSubmit}>
-            <Input name="name" label="Name:" />
-            <Input name="authorName" label="Author name:" />
-            <Input name="authorGender" label="Author gender:" />
-            <Input name="authorNationality" label="Author nationality:" />
-            <Input
+            <FormInput
+                name="name"
+                label="Name:"
+                value={formData.name}
+                onChange={onInputChange}
+            />
+            <FormInput
+                name="authorName"
+                label="Author name:"
+                value={formData.authorName}
+                onChange={onInputChange}
+            />
+            <FormInput
+                name="authorGender"
+                label="Author gender:"
+                value={formData.authorGender}
+                onChange={onInputChange}
+            />
+            <FormInput
+                name="authorNationality"
+                label="Author nationality:"
+                value={formData.authorNationality}
+                onChange={onInputChange}
+            />
+            <FormInput
                 name="authorBirthdate"
                 label="Author birthdate:"
                 type="date"
+                value={formData.authorBirthdate}
+                onChange={onInputChange}
             />
-            <Input name="publisher" label="Publisher:" />
-            <Input name="year" label="Published in:" type="number" />
-            <Input name="edition" label="Edition:" type="number" />
-            <Input name="genre" label="Genre:" />
-            <Input name="photo" label="Photo:" />
-            <Checkout name="isSigned" label="Is signed?" />
-            <Checkout name="isSignedToMe" label="Is signed to me?" />
-            <Input name="details" label="Other details" />
+            <FormInput
+                name="publisher"
+                label="Publisher:"
+                value={formData.publisher}
+                onChange={onInputChange}
+            />
+            <FormInput
+                name="year"
+                label="Published in:"
+                type="number"
+                value={formData.year}
+                onChange={onInputChange}
+            />
+            <FormInput
+                name="edition"
+                label="Edition:"
+                type="number"
+                value={formData.edition}
+                onChange={onInputChange}
+            />
+            <FormInput
+                name="genre"
+                label="Genre:"
+                value={formData.genre}
+                onChange={onInputChange}
+            />
+            <FormInput
+                name="photo"
+                label="Photo:"
+                value={formData.photo}
+                onChange={onInputChange}
+            />
+            <Checkbox
+                name="isSigned"
+                label="Is signed?"
+                value={formData.isSigned}
+                onChange={onInputChange}
+            />
+            <Checkbox
+                name="isSignedToMe"
+                label="Is signed to me?"
+                value={formData.isSignedToMe}
+                onChange={onInputChange}
+            />
+            <FormInput
+                name="details"
+                label="Other details"
+                value={formData.details}
+                onChange={onInputChange}
+            />
             <SubmitButton label="Go!" />
         </form>
     );
