@@ -1,5 +1,5 @@
 'use client';
-import FormInput from '../Input/Input';
+import FormInput from '../FormInput/FormInput';
 import Checkbox from '../Checkbox/Checkbox';
 import SubmitButton from '../SubmitButton/SubmitButton';
 

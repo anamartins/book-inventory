@@ -1,5 +1,5 @@
 'use client';
-import './Input.scss';
+import './FormInput.scss';
 
 interface FormInputProps {
     name: string;

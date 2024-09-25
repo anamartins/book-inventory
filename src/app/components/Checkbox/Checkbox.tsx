@@ -4,7 +4,7 @@ import './Checkbox.scss';
 interface CheckboxProps {
     name: string;
     label: string;
-    value: string;
+    value: boolean;
     onChange: Function;
 }
 
