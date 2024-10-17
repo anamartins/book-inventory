@@ -47,7 +47,9 @@ export function saveBook(book: Book) {
 }
 
 export function getBooks() {
-    return JSON.parse(localStorage.getItem(localStorageItem));
+    const storage = localStorage.getItem(localStorageItem);
+    const books = JSON.parse(storage);
+    if (storage) return books;
 }
 
 export function getBook(slug: string) {

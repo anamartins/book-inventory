@@ -34,8 +34,6 @@ const Form = () => {
 
     function onSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
-        const formElements: HTMLFormControlsCollection =
-            event.currentTarget.elements;
         const bookName = formData.name;
         const authorName = formData.authorName;
 
