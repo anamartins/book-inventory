@@ -8,7 +8,7 @@ import { saveBook, Book } from '../../utils/bookStorage';
 
 import './Form.scss';
 
-const Form = () => {
+const Form = ({isOpen}) => {
     const [formData, updateFormData] = useState({
         name: '',
         authorName: '',
@@ -64,7 +64,7 @@ const Form = () => {
     }
 
     return (
-        <form className="form" onSubmit={onSubmit}>
+        <form className={`form ${isOpen ? "open-form" : "closed-form"}`} onSubmit={onSubmit}>
             <FormInput
                 name="name"
                 label="Name:"
