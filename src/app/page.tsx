@@ -11,22 +11,20 @@ import BookList from './components/BookList/BookList';
 
 export default function Home() {
     const [books, setBooks] = useState('');
-    const [isShowAddBook, setIsShowAddBook] = useState (false);
+    const [isAddBookVisible, setisAddBookVisible] = useState (false);
 
     function onButtonClick() {
         setBooks(getBooks());
     }
 
     function showAddBook() {
-        console.log('show!', isShowAddBook)
-        setIsShowAddBook(!isShowAddBook);
-
+        setisAddBookVisible(!isAddBookVisible);
     }
 
     return (
         <main className={styles.main}>
             <Button label="Add a book" onClick={showAddBook}/>
-            <Form isOpen={isShowAddBook}/>
+            <Form isOpen={isAddBookVisible}/>
             <div className={styles.collection}>
                 <Button label="Show collection" onClick={onButtonClick} />
                 <h2>COLLECTION</h2>
