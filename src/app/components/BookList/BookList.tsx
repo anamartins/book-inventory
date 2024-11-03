@@ -2,7 +2,7 @@
 import './BookList.scss';
 
 const BookList = ({ books }) => {
-    const bookList = books.length
+    const bookList = books?.length
         ? books.map((book, index: number) => {
               const url = '/books/' + book.slug;
               return (
@@ -18,7 +18,8 @@ const BookList = ({ books }) => {
                   </li>
               );
           })
-        : 0;
+        : 'empty'
+
     return <ul className="book-list">{bookList}</ul>;
 };
 
