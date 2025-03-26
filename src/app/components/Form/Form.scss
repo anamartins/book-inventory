@@ -2,7 +2,16 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    margin: 1rem;
-    padding: var(--padding);
+    margin: 2rem;
     width: 100vw;
+    overflow: hidden;
+    transition: opacity 300ms ease, height 100ms ease;
+    height: 0;
+    opacity: 0;
+}
+
+.open-form {
+    transition: opacity 300ms ease, height 100ms ease;
+    height: 100%;
+    opacity: 1;
 }

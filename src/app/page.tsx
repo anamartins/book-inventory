@@ -11,6 +11,7 @@ import BookList from './components/BookList/BookList';
 
 export default function Home() {
     const [books, setBooks] = useState('');
+    const [isShowAddBook, setIsShowAddBook] = useState (false);
 
     useEffect(() => {
         setBooks(getBooks());
@@ -20,9 +21,16 @@ export default function Home() {
         setBooks(getBooks());
     }
 
+    function showAddBook() {
+        console.log('show!', isShowAddBook)
+        setIsShowAddBook(!isShowAddBook);
+
+    }
+
     return (
         <main className={styles.main}>
-            <Form />
+            <Button label="Add a book" onClick={showAddBook}/>
+            <Form isOpen={isShowAddBook}/>
             <div className={styles.collection}>
                 <Button label="Update collection" onClick={onButtonClick} />
                 <h2>MY COLLECTION</h2>
