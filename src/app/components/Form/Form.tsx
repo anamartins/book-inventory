@@ -64,7 +64,7 @@ const Form = ({isOpen}) => {
     }
 
     return (
-        <form className={`form ${isOpen ? "open-form" : "closed-form"}`} onSubmit={onSubmit}>
+        <form className={`form ${isOpen ? "open-form" : ""}`} onSubmit={onSubmit}>
             <FormInput
                 name="name"
                 label="Name:"

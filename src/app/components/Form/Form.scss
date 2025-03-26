@@ -4,9 +4,6 @@
     justify-content: flex-start;
     margin: 2rem;
     width: 100vw;
-}
-
-.closed-form {
     overflow: hidden;
     transition: opacity 300ms ease, height 100ms ease;
     height: 0;
